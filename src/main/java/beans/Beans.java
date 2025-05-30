@@ -2,7 +2,7 @@ package beans;
 
 public class Beans implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
-
+	//情報を入れておくための箱//
 	private int member_id;
 	private String password;
 	private String last_name;
@@ -12,7 +12,7 @@ public class Beans implements java.io.Serializable {
 
 	public Beans() {
 	}
-
+	//新しい箱を作るときに中身をセットする///
 	public Beans(int member_id, String password, String last_name, String first_name, String address,
 			String mail_address) {
 		this.member_id = member_id;
