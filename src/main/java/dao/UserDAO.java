@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import beans.Beans;
+import beans.UserBean;
 
 public class UserDAO extends DAO {
 
@@ -33,4 +34,26 @@ public class UserDAO extends DAO {
 		return user;
 
 	}
+	public int insert(UserBean user) throws Exception{
+		int result=0;
+		
+		Connection con =getConnection();
+		
+		PreparedStatement st=con.prepareStatement(
+				"INSERT INTO users (password, last_name, first_name, address, mail_address) VALUES (?, ?, ?, ?, ?)"
+		    );
+		    st.setString(1, user.getpassword());
+		    st.setString(2, user.getlast_name());
+		    st.setString(3, user.getfirst_name());
+		    st.setString(4, user.getaddress());
+		    st.setString(5, user.getmail_address());
+
+		    result = st.executeUpdate(); 
+		    st.close();
+		    con.close();
+
+		    return result;		
+	}
+	
+	
 }
