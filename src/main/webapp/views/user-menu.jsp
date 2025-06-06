@@ -8,7 +8,7 @@
 <%----ユーザー情報とかを持っている --%>
 
 <%
-Beans u = (Beans) request.getAttribute("user");
+Beans u = (Beans) session.getAttribute("user");
 %>
 <%----今のページを呼び出すのにrequest.getAttribute("user")でUSERという名前で情報を渡しているか探している、
 （Beans)取ってきた情報はbeans型だよって教えている、
@@ -21,18 +21,29 @@ beans u=はその型をuという名前の変数に入れてる --%>
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>HOME</h1>
 	<form action="user-menu.jsp" method="post">
 		<%
 		if (u != null) {
 		%>
 
 		<%----uがnullじゃなければ --%>
-		<h1>HOME</h1>
-		ようこそ、<%=u.getlast_name()%><%=u.getfirst_name()%>さん！<br>
-		<%}%><%----beansのgetlast_nameとかを使って表示している --%>
-		<input type="submit" value="修正"><br> <input type="submit"
-			value="削除"><br>
 
+		<h2>
+			ようこそ、<%=u.getLastName()%><%=u.getFirstName()%>さん！
+		</h2>
+		<br>
+		<%}%><%----beansのgetlast_nameとかを使って表示している --%>
+		
+		
+
+	</form>
+	<form action="<%=request.getContextPath() %>/servlet/userdelete" method="post" onsubmit="return confirm('削除してもよろしいですか？');">
+	<input type="submit" value="削除"><br>
+	</form>
+
+	<form action="UserEdit.jsp" method="post">
+		<input type="submit" value="編集"><br>
 	</form>
 
 	<form action="logout-servlet" method="post">

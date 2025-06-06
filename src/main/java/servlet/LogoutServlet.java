@@ -9,17 +9,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LogoutServlet
- */
+
 @WebServlet(urlPatterns = { "/views/logout-servlet" })
 public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	* 
-	* 
-	*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
@@ -27,7 +21,7 @@ public class LogoutServlet extends HttpServlet {
 		if (session != null) {
 			session.invalidate();
 		}
-		response.sendRedirect("login-in.jsp");
+		response.sendRedirect(request.getContextPath() +"/views/logout.jsp");
 	}
 
 }

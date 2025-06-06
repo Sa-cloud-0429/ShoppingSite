@@ -3,72 +3,72 @@ package beans;
 public class Beans implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	//情報を入れておくための箱//
-	private int member_id;
+	private String memberId;
 	private String password;
-	private String last_name;
-	private String first_name;
+	private String lastName;
+	private String firstName;
 	private String address;
-	private String mail_address;
+	private String mailAddress;
 
 	public Beans() {
 	}
 	//新しい箱を作るときに中身をセットする///
-	public Beans(int member_id, String password, String last_name, String first_name, String address,
-			String mail_address) {
-		this.member_id = member_id;
+	public Beans(String memberId, String password, String lastName, String firstName, String address,
+			String mailAddress) {
+		this.memberId = memberId;
 		this.password = password;
-		this.last_name = last_name;
-		this.first_name = first_name;
+		this.lastName = lastName;
+		this.firstName = firstName;
 		this.address = address;
-		this.mail_address = mail_address;
+		this.mailAddress = mailAddress;
 	}
 
-	public int getmember_id() {
-		return member_id;
+	public String getMemberId() {
+		return memberId;
 	}
 
-	public void setmember_id(int member_id) {
-		this.member_id = member_id;
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
 	}
 
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setpassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getlast_name() {
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setlast_name(String last_name) {
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getfirst_name() {
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setfirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getaddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setaddress(String address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public String getmail_address() {
-		return mail_address;
+	public String getMailAddress() {
+		return mailAddress;
 	}
 
-	public void setmail_address(String mail_address) {
-		this.mail_address = mail_address;
+	public void setMailAddress(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 
 }

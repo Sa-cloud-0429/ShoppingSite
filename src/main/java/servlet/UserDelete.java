@@ -12,11 +12,8 @@ import jakarta.servlet.http.HttpSession;
 import beans.Beans;
 import dao.UserDAO;
 
-/**
- * Servlet implementation class servlet
- */
-@WebServlet(urlPatterns = { "/views/login-servlet" })
-public class LoginServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/servlet/userdelete" })
+public class UserDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -24,29 +21,32 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 
-			String memberId = request.getParameter("member_id"); // name="ID" の入力値
-			String password = request.getParameter("password");
+			HttpSession session = request.getSession(false);
+			Beans user = (Beans) session.getAttribute("user");
+
+			Beans deleteUser = new Beans();
+			deleteUser.setMemberId(user.getMemberId());
 
 			UserDAO dao = new UserDAO();
-			Beans user = dao.login(memberId, password);
+			boolean result = dao.delete(deleteUser);
 
-			if (user == null) {
+			System.out.println("◆ 削除対象のID：" + deleteUser.getMemberId());
 
-				request.getRequestDispatcher("/views/login-error.jsp")
+			if (result) {
+				session.invalidate();
+				request.getRequestDispatcher("../views/userDeleteSuccess.jsp")
 						.forward(request, response);
-				return;
+
 			} else {
-				HttpSession session = request.getSession();
-				session.setAttribute("user", user);
-				request.getRequestDispatcher("/views/user-menu.jsp")
-						.forward(request, response);
+				request.getRequestDispatcher("../views/userDeleteSuccess.jsp")
+				.forward(request, response);
 			}
-
-			//			
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			response.sendRedirect("/views/login-error.jsp");
+
 		}
+
 	}
+
 }
