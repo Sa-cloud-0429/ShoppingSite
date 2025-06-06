@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <%@ page import="beans.Beans" %>
-    
-   
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>　新規会員登録完了</h1>
-<form action="login-in.jsp" method="post">
-<input type="submit" value="ログイン画面へ戻る">
+<h1>新規登録エラー</h1>
 
+<h2>入力したIDは、既に登録済みです</h2>
+<form action="userAddError" method="post">
+<a href="member.jsp">新規会員登録に戻る</a>
 </form>
-
 
 </body>
 </html>

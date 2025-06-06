@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>ERROR</h1>
 	<p>IDもしくはパスワードが違います。</p>
 
 	<a href="login-in.jsp"> ログイン画面へ戻る </a>

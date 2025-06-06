@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    <%@ page import="beans.Beans" %>
-    
-   
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,12 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>　新規会員登録完了</h1>
-<form action="login-in.jsp" method="post">
-<input type="submit" value="ログイン画面へ戻る">
 
+<h1>削除完了</h1>
+<form action="userDeleteSuccess" method="post">
 </form>
-
+<a href="<%=request.getContextPath()%>/views/login-in.jsp">ログイン画面へ戻る</a>
 
 </body>
 </html>
